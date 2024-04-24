@@ -1,9 +1,9 @@
-import Banner from '@/modules/home/features/banner'
+import Banner from '@/modules/home/elements/banner'
 import Header from '@/shared/widgets/header'
-import Branding from '@/modules/home/features/branding';
-import Benefits from '@/modules/home/features/benefits';
-import FeatureHighlight from '@/modules/home/features/feature.highlight';
-import Pricing from '@/modules/home/features/pricing';
+import Branding from '@/modules/home/elements/branding';
+import Benefits from '@/modules/home/elements/benefits';
+import FeatureHighlight from '@/modules/home/elements/feature.highlight';
+import Pricing from '@/modules/home/elements/pricing';
 import Footer from "@/shared/widgets/footer/footer";
 
 const Home = () => {

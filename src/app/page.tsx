@@ -1,11 +1,12 @@
-import React from 'react'
+import Dashboard from '@/modules/dashboard';
 import Home from "@/modules/home/home";
 
-type Props = {}
-
-const Page = (props: Props) => {
+const Page = () => {
   return (
-    <div><Home/></div>
+    <div>
+      <Home/>
+    </div>
+    // <Dashboard/>
   )
 }
 export default Page;
