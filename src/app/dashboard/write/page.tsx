@@ -1,7 +1,9 @@
-import Write from "@/modules/dashboard/elements/write/write"
+import Write from "@/modules/dashboard/elements/write/write";
+
 const Page = () => {
-  return
-  <Write />;
+  return (
+  <Write />
+  );
 };
 
 export default Page;
