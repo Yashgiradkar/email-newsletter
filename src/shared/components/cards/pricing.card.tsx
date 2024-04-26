@@ -1,9 +1,22 @@
 import { Button } from "@nextui-org/button";
 import { ICONS } from "@/shared/utils/icons";
 import { GrowPlan, freePlan, scalePlan } from "@/app/configs/constants";
-
+import { useUser } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
+import { stripeSubscribe } from "@/actions/stripe.subscribe";
 
 const PricingCard = ({ active }: { active: string }) => {
+
+    const { user } = useUser();
+    const history = useRouter();
+    const handleSubscription = async ({ price }: { price: string }) => {
+      await stripeSubscribe({ price: price, userId: user?.id! }).then(
+        (res: any) => {
+          history.push(res);
+        }
+      );
+    };
+
   return (
     <div className=" w-full md:flex items-start justify-around py-8">
       {/* free plan */}
@@ -72,7 +85,7 @@ const PricingCard = ({ active }: { active: string }) => {
         <br />
         <div className="border-b pb-8 border-black">
           <h5 className="font-clashDisplay uppercase text-cyber-ink text-3xl">
-            ${active === "Monthly" ? "49" : "42"} /month
+            ₹{active === "Monthly" ? "49" : "42"} /month
           </h5>
           <p className="text-lg">Billed {active}</p>
         </div>
@@ -89,19 +102,19 @@ const PricingCard = ({ active }: { active: string }) => {
         <Button
           color="primary"
           className="w-full text-xl !py-6"
-          //   onClick={() =>
-          //     handleSubscription({
-          //       price:
-          //         active === "Monthly"
-          //           ? "price_1OnaWFSA1WAzNgKlsGN6K4ZW"
-          //           : "price_1Onbt8SA1WAzNgKlyrXYlJBG",
-          //     })
-          //   }
+          onClick={() =>
+            handleSubscription({
+              price:
+                active === "Monthly"
+                  ? "price_1P9lWESCrRK5KAFnjpPlGkdp"
+                  : "price_1P9ltOSCrRK5KAFnfjuBdWpz",
+            })
+          }
         >
           Get Started
         </Button>
         <p className="pt-1 opacity-[.7] text-center">
-          30-day free trial of Scale features, then $
+          30-day free trial of Scale features, then ₹
           {active === "Monthly" ? "42" : "49"}/mo
         </p>
       </div>
@@ -128,7 +141,7 @@ const PricingCard = ({ active }: { active: string }) => {
         <br />
         <div className="border-b pb-8 border-[#000]">
           <h5 className="font-clashDisplay uppercase text-cyber-ink text-3xl">
-            ${active === "Monthly" ? "99" : "84"} /month
+            ₹{active === "Monthly" ? "99" : "84"} /month
           </h5>
           <p className="text-lg">Billed {active}</p>
         </div>
@@ -145,19 +158,19 @@ const PricingCard = ({ active }: { active: string }) => {
         <Button
           color="primary"
           className="w-full text-xl !py-6"
-        //   onClick={() =>
-        //     handleSubscription({
-        //       price:
-        //         active === "Monthly"
-        //           ? "price_1On2H2SA1WAzNgKlV64Zj6gE"
-        //           : "price_1Onf9gSA1WAzNgKlg8NLBP4r",
-        //     })
-        //   }
+          onClick={() =>
+            handleSubscription({
+              price:
+                active === "Monthly"
+                  ? "price_1P9lbISCrRK5KAFn4n6HvRAl"
+                  : "price_1P9luGSCrRK5KAFnrsjgbkJi",
+            })
+          }
         >
           Get Started
         </Button>
         <p className="pt-1 opacity-[.7] text-center">
-          30-day free trial of Scale features, then $
+          30-day free trial of Scale features, then ₹
           {active === "Monthly" ? "99" : "84"}/mo
         </p>
       </div>

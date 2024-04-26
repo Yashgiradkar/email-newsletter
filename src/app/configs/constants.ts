@@ -136,7 +136,7 @@ export const subscribersData: subscribersDataTypes[] = [
   },
   {
     _id: "64f717a45331088de2ce886c",
-    email: "support@becodemy.com",
+    email: "yashgiradkar02@gmail.com",
     createdAt: "8Feb 2024",
     source: "External website",
     status: "subscribed",
