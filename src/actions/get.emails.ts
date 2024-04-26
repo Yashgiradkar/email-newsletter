@@ -3,7 +3,6 @@
 import { connectDb } from "@/shared/libs/db";
 import Email from "@/models/email.model";
 
-
 export const getEmails = async ({
     newsLetterOwnerId,
 }: {

@@ -1,5 +1,5 @@
 'use client';
-// import { deleteEmail } from "@/actions/delete.email";
+import { deleteEmail } from "@/actions/delete.email";
 import { getEmails } from "@/actions/get.emails";
 import { useState, useEffect } from "react";
 import { ICONS } from "@/shared/utils/icons";

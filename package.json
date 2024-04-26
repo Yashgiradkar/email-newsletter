@@ -10,6 +10,10 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^4.30.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.15",
+    "@mui/x-data-grid": "^7.3.0",
     "@nextui-org/react": "^2.3.5",
     "@stripe/stripe-js": "^3.3.0",
     "aws-sdk": "^2.1602.0",
@@ -28,7 +32,8 @@
     "react-icons": "^5.1.0",
     "recharts": "^2.12.6",
     "stargate-mongoose": "^0.5.6",
-    "stripe": "^15.3.0"
+    "stripe": "^15.3.0",
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^20",

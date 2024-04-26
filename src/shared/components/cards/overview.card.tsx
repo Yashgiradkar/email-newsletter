@@ -1,16 +1,16 @@
 "use client";
-// import useSubscribersAnalytics from "@/shared/hooks/useSubscribersAnalytics";
+import useSubscribersAnalytics from "@/shared/hooks/useSubscribersAnalytics";
 import { ICONS } from "@/shared/utils/icons";
 
 const DashboardOverViewCard = () => {
-  // const { subscribersData, loading } = useSubscribersAnalytics();
-  // const lastMonthSubscribers =
-  //   !loading &&
-  //   subscribersData?.last7Months[subscribersData?.last7Months?.length - 1];
+  const { subscribersData, loading } = useSubscribersAnalytics();
+  const lastMonthSubscribers =
+    !loading &&
+    subscribersData?.last7Months[subscribersData?.last7Months?.length - 1];
 
-  // const previousLastMonthSubscribers =
-  //   !loading &&
-  //   subscribersData?.last7Months[subscribersData?.last7Months?.length - 2];
+  const previousLastMonthSubscribers =
+    !loading &&
+    subscribersData?.last7Months[subscribersData?.last7Months?.length - 2];
 
   // let comparePercentage = 0;
 
@@ -29,7 +29,7 @@ const DashboardOverViewCard = () => {
       <div className="w-[33.33%] border-r p-5 text-lg">
         <h5 className="text-lg">Subscribers</h5>
         <div className="w-full flex items-center justify-between">
-          {/* <span className="font-medium pt-2">{loading ? "..." : 1}</span> */}
+          <span className="font-medium pt-2">{loading ? "..." : 1}</span>
           <div className="h-[30px] flex p-2 items-center bg-[#DCFCE6] rounded-full">
             <span className="text-[#21C55D]">{ICONS.topArrow}</span>
             {/* <span className="text-sm pl-1">{comparePercentage}%</span> */}

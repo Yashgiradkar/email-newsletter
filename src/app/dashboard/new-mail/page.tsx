@@ -15,7 +15,7 @@ import Emaileditor from "@/shared/components/editor/email.editor";
 
 const Page = () => {
   const searchParams = useSearchParams();
-  const subject : string = searchParams.get("subject");
+  const subject : string = searchParams.get("subject")!;
   const subjectTitle = subject.replace(/-/g, " ");
 
   return (
