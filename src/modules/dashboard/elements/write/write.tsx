@@ -1,56 +1,51 @@
-'use client';
+"use client";
+
 import { deleteEmail } from "@/actions/delete.email";
 import { getEmails } from "@/actions/get.emails";
-import { useState, useEffect } from "react";
 import { ICONS } from "@/shared/utils/icons";
-import { useRouter } from "next/navigation";
 import { useClerk } from "@clerk/nextjs";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
-
 const Write = () => {
-  const [emails, setEmails] = useState<any>([]);
   const [emailTitle, setEmailTitle] = useState("");
+  const [emails, setEmails] = useState<any>([]);
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const { user } = useClerk();
 
+  const handleCreate = () => {
+    if (emailTitle.length === 0) {
+      toast.error("Enter the email subject to continue!");
+    } else {
+      const formattedTitle = emailTitle.replace(/\s+/g, "-").replace(/&/g, "-");
+      router.push(`/dashboard/new-email?subject=${formattedTitle}`);
+    }
+  };
 
-    const handleCreate = () => {
-      if (emailTitle.length === 0) {
-        toast.error("Enter the email subject to continue!");
-      } else {
-        const formattedTitle = emailTitle
-          .replace(/\s+/g, "-")
-          .replace(/&/g, "-");
-        router.push(`/dashboard/new-email?subject=${formattedTitle}`);
-      }
-    };
+  useEffect(() => {
+    FindEmails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
+  const FindEmails = async () => {
+    await getEmails({ newsLetterOwnerId: user?.id! })
+      .then((res) => {
+        setEmails(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-      useEffect(() => {
-        FindEmails();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [user]);
-
-      const FindEmails = async () => {
-        await getEmails({ newsLetterOwnerId: user?.id! })
-          .then((res) => {
-            setEmails(res);
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      };
-
-
-        const deleteHanlder = async (id: string) => {
-          await deleteEmail({ emailId: id }).then((res) => {
-            FindEmails();
-          });
-        };
+  const deleteHanlder = async (id: string) => {
+    await deleteEmail({ emailId: id }).then((res) => {
+      FindEmails();
+    });
+  };
 
   return (
     <div className="w-full flex p-5 flex-wrap gap-6 relative">
@@ -97,10 +92,10 @@ const Write = () => {
                 className="text-lg cursor-pointer"
                 onClick={() => setOpen(!open)}
               >
-                {ICONS.cross} 
+                {ICONS.cross}
               </span>
             </div>
-            <h5 className="text-2xl">Enter your Email Subject</h5>
+            <h5 className="text-2xl">Enter your Email subject</h5>
             <input
               type="text"
               name=""
@@ -120,6 +115,7 @@ const Write = () => {
         </div>
       )}
     </div>
-  );};
+  );
+};
 
 export default Write;

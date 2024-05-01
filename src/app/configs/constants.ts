@@ -69,7 +69,7 @@ export const scalePlan: PlanType[] = [
     title: "Up to 100,000 subscribers",
   },
   {
-    title: "Referal program",
+    title: "Refferal program",
   },
   {
     title: "AI support",

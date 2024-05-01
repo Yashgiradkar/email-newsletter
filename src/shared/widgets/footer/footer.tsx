@@ -38,14 +38,14 @@ const Footer = () => {
                 <li className="text-xl pb-4 cursor-pointer">Create</li>
                 <li className="text-xl pb-4 cursor-pointer">Write</li>
                 <li className="text-xl pb-4 cursor-pointer">Grow</li>
-                <li className="text-xl pb-4 cursor-pointer">Monitize</li>
-                <li className="text-xl pb-4 cursor-pointer">Analayze</li>
+                <li className="text-xl pb-4 cursor-pointer">Monetize</li>
+                <li className="text-xl pb-4 cursor-pointer">Analyze</li>
               </ul>
             </div>
 
             <div>
               <ul>
-                <li className="text-xl pb-4 cursor-pointer">Carrers</li>
+                <li className="text-xl pb-4 cursor-pointer">Careers</li>
                 <li className="text-xl pb-4 cursor-pointer">Pricing</li>
                 <li className="text-xl pb-4 cursor-pointer">Shop</li>
                 <li className="text-xl pb-4 cursor-pointer">Compare</li>

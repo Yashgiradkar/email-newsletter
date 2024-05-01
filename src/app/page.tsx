@@ -1,4 +1,3 @@
-// import Dashboard from '@/modules/dashboard';
 import Home from "@/modules/home/home";
 
 const Page = () => {
@@ -6,7 +5,6 @@ const Page = () => {
     <div>
       <Home/>
     </div>
-      // <Dashboard/>
   )
 }
 export default Page;

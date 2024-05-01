@@ -6,16 +6,15 @@ import { useRouter } from "next/navigation";
 import { stripeSubscribe } from "@/actions/stripe.subscribe";
 
 const PricingCard = ({ active }: { active: string }) => {
-
-    const { user } = useUser();
-    const history = useRouter();
-    const handleSubscription = async ({ price }: { price: string }) => {
-      await stripeSubscribe({ price: price, userId: user?.id! }).then(
-        (res: any) => {
-          history.push(res);
-        }
-      );
-    };
+  const { user } = useUser();
+  const history = useRouter();
+  const handleSubscription = async ({ price }: { price: string }) => {
+    await stripeSubscribe({ price: price, userId: user?.id! }).then(
+      (res: any) => {
+        history.push(res);
+      }
+    );
+  };
 
   return (
     <div className=" w-full md:flex items-start justify-around py-8">
@@ -171,7 +170,7 @@ const PricingCard = ({ active }: { active: string }) => {
         </Button>
         <p className="pt-1 opacity-[.7] text-center">
           30-day free trial of Scale features, then ₹
-          {active === "Monthly" ? "99" : "84"}/mo
+          {active === "Monthly" ? "99" : "84"}/month
         </p>
       </div>
     </div>

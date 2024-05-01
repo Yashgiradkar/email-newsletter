@@ -26,7 +26,7 @@ const useSubscribersData = () => {
     };
 
 
-  return {data, loading }
+  return {data, loading };
 }
 
 export default useSubscribersData

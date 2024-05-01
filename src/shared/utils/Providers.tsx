@@ -8,7 +8,6 @@ import { addStripe } from "@/actions/add.stripe";
 
 interface ProviderProps{
     children: React.ReactNode;
-
 }
 
 export default function Providers({children}: ProviderProps){

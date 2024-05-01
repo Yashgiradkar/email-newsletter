@@ -30,3 +30,4 @@ export const connectDb = async () => {
     console.log(error);
   }
 };
+
