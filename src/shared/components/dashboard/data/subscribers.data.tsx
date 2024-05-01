@@ -29,15 +29,15 @@ const SubscribersData = () => {
 
     const rows: subscribersDataTypes[] = [];
 
-    data.forEach((i:subscribersDataTypes) => {
-        rows.push({
-          _id: i?._id,
-          email: i?.email,
-          createdAt: format(i?.createdAt),
-          source: i?.source,
-          status: i?.status,
-        });
-    })
+    // data.forEach((i:subscribersDataTypes) => {
+    //     rows.push({
+    //       _id: i?._id,
+    //       email: i?.email,
+    //       createdAt: format(i?.createdAt),
+    //       source: i?.source,
+    //       status: i?.status,
+    //     });
+    // })
 
   return (
     <Box m="20px">
